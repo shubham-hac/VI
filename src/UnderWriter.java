@@ -61,7 +61,7 @@ public class UnderWriter {
         }
     }
 
-    // 🆕 Display Underwriter Details
+    // Display Underwriter Details
     public void displayDetails() {
         System.out.println("\n--- Underwriter Details ---");
         System.out.println("ID: " + underwriterId);
@@ -72,7 +72,7 @@ public class UnderWriter {
         System.out.println("Default Password: " + defaultPassword);
     }
 
-    // 🔍 Get Underwriter by ID
+    // Get Underwriter by ID
     public static UnderWriter getUnderwriterById(int id) {
         for (UnderWriter uw : underWriters) {
             if (uw.getUnderwriterId() == id) {
@@ -83,12 +83,12 @@ public class UnderWriter {
     }
     public static boolean updateUnderwriterPasswordById(int id, String newPassword) {
         for (UnderWriter uw : underWriters) {
-            if (uw.getUnderwriterId() == id) { // ✅ Check if ID matches
+            if (uw.getUnderwriterId() == id) { // Check if ID matches
                 uw.password = newPassword;
                 return true; // Password updated successfully
             }
         }
-        return false; // ❌ ID not found
+        return false; // ID not found
     }
 
     public static String generateDefaultPassword() {
@@ -131,7 +131,7 @@ public class UnderWriter {
         return false; // ID not found
     }
 
-    // 🔍 Search Underwriter by UserID
+    //  Search Underwriter by UserID
     public static UnderWriter searchUnderwriterByUserId(String userId) {
         for (UnderWriter uw : underWriters) {
             if (uw.getUserId().equals(userId)) {
@@ -141,14 +141,14 @@ public class UnderWriter {
         return null; // If not found
     }
 
-    // 🔍 Get Underwriter by User ID
+    // Get Underwriter by User ID
     public static UnderWriter getUnderwriterByUserId(String userId) {
         for (UnderWriter uw : underWriters) {
             if (uw.getUserId().equals(userId)) {
-                return uw; // ✅ Found
+                return uw; // Found
             }
         }
-        return null; // ❌ Not Found
+        return null; // Not Found
     }
 
     public static void viewVehiclesByUnderwriterId(String userId) {
@@ -167,20 +167,20 @@ public class UnderWriter {
         }
     }
 
-    // 🔐 Authenticate Underwriter Login
+    // Authenticate Underwriter Login
     // Check if UserID and Password are correct
     public static UnderWriter authenticateUnderwriter(String userId, String password) {
         for (UnderWriter uw : underWriters) {
             if (uw.getUserId().equals(userId) && uw.getPassword().equals(password)) {
-                return uw; // ✅ Return valid underwriter
+                return uw; // Return valid underwriter
             }
         }
-        return null; // ❌ Return null if no match found
+        return null; // Return null if no match found
     }
 
 
 
-    // 🚗 Create New Vehicle Insurance
+    // Create New Vehicle Insurance
     public void createVehicleInsurance() {
         try {
             System.out.println("Enter Vehicle No (Alphanumeric with space): ");
@@ -224,7 +224,7 @@ public class UnderWriter {
             // Auto-increment Policy No
             int policyNo = vehicles.size() + 1;
 
-            // ✅ Create Vehicle Object
+            // Create Vehicle Object
             Vehicle newVehicle = new Vehicle(policyNo, vehicleNo, vehicleType, customerName,
                     engineNo, chassisNo, phoneNo, insuranceType, premiumAmount, fromDate, toDate, underwriterId);
 
@@ -237,7 +237,7 @@ public class UnderWriter {
     }
 
 
-    // 🔄 Renew Vehicle Insurance Policy
+    // Renew Vehicle Insurance Policy
     public void renewPolicy() {
         System.out.print("Enter Vehicle No to Renew Policy: ");
         String vehicleNo = scanner.nextLine();
@@ -253,13 +253,13 @@ public class UnderWriter {
         }
     }
 
-    // 🔁 Change Policy Type
+    // Change Policy Type
     public void changePolicyType() {
         System.out.print("Enter Policy ID: ");
         int policyId = scanner.nextInt();
         scanner.nextLine(); // Consume newline
 
-        // 🔍 Search for Vehicle by Policy ID
+        // Search for Vehicle by Policy ID
         Vehicle v = getVehicleByPolicyId(policyId);
 
         if (v == null) {
@@ -267,7 +267,7 @@ public class UnderWriter {
             return;
         }
 
-        // ✅ Check Current Insurance Type
+        // Check Current Insurance Type
         if (v.getInsuranceType().equalsIgnoreCase("Third Party")) {
             System.out.println("There's no provision to update the policy type from Third Party to Full Insurance.");
         } else if (v.getInsuranceType().equalsIgnoreCase("Full Insurance")) {
@@ -286,7 +286,7 @@ public class UnderWriter {
     }
 
 
-    // 👀 View All Vehicle Policies
+    // View All Vehicle Policies
     public void viewPolicyMenu() {
         while (true) {
             System.out.println("\n--- View Vehicle Insurance Policy ---");
@@ -300,13 +300,13 @@ public class UnderWriter {
 
             switch (choice) {
                 case 1:
-                    viewAllPolicies(); // ✅ View all insurance policies
+                    viewAllPolicies(); // View all insurance policies
                     break;
                 case 2:
-                    viewInsuranceByVehicleId(); // ✅ View by Vehicle ID
+                    viewInsuranceByVehicleId(); // View by Vehicle ID
                     break;
                 case 3:
-                    viewInsuranceByPolicyId(); // ✅ View by Policy ID
+                    viewInsuranceByPolicyId(); // View by Policy ID
                     break;
                 case 4:
                     return; // Go back to the previous menu
@@ -365,7 +365,7 @@ public class UnderWriter {
 
 
 
-    // 🔍 Get Vehicle by Vehicle No
+    // Get Vehicle by Vehicle No
     public Vehicle getVehicleByNo(String vehicleNo) {
         for (Vehicle v : vehicles) {
             if (v.getVehicleNo().equals(vehicleNo)) {

@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 public class Admin {
     private static final String adminUserId = "admin";
-    private static final String adminPassword = "password";
+    private static final String adminPassword = "Password@123";
     public static Scanner scanner = new Scanner(System.in);
 
     public static void adminLogin() {
@@ -50,7 +50,7 @@ public class Admin {
                     updateUnderwriterDetails();
                     break;
                 case 4:
-                    deleteUnderwriterById(); // 🎯 Updated method linked
+                    deleteUnderwriterById(); // Updated method linked
                     break;
                 case 5:
                     viewUnderwriters();
@@ -67,7 +67,7 @@ public class Admin {
         }
     }
 
-    // ✅ 1. Register Underwriter
+    // 1. Register Underwriter
     private static void registerUnderwriter() {
         try {
             System.out.print("Enter Underwriter Name: ");
@@ -81,11 +81,11 @@ public class Admin {
             System.out.print("Enter Password: ");
             String password = UnderWriter.scanner.nextLine();
 
-            // ✅ Add the Underwriter
+            // Add the Underwriter
             UnderWriter.addUnderwriter(name, dob, joiningDate, userId, password);
             System.out.println("Underwriter registered successfully!");
 
-            // 🆕 Display Registered Underwriters
+            // Display Registered Underwriters
             System.out.println("Registered Underwriters:");
             for (UnderWriter uw : UnderWriter.getUnderWriters()) {
                 System.out.println("UserID: " + uw.getUserId() + ", Password: " + uw.getPassword());
@@ -99,7 +99,7 @@ public class Admin {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         return dateFormat.parse(dateString);
     }
-    // 🔎 2. Search Underwriter by ID
+    // 2. Search Underwriter by ID
     private static void searchUnderwriterById() {
         System.out.print("Enter Underwriter ID to Search: ");
         String userId = scanner.nextLine();
@@ -111,7 +111,7 @@ public class Admin {
         }
     }
 
-    // 🔄 3. Update Underwriter Password
+    // 3. Update Underwriter Password
     private static void updateUnderwriterPassword() {
         System.out.print("Enter Underwriter ID to Update: ");
         String userId = scanner.nextLine();
@@ -126,7 +126,7 @@ public class Admin {
         }
     }
 
-    // ❌ 4. Delete Underwriter by ID
+    // 4. Delete Underwriter by ID
     private static void deleteUnderwriterById() {
         while (true) {
             System.out.print("Enter Underwriter ID to delete: ");
@@ -134,7 +134,7 @@ public class Admin {
 
             UnderWriter uw = UnderWriter.searchUnderwriterByUserId(userId);
             if (uw != null) {
-                // ✅ Underwriter found - Ask for confirmation
+                // Underwriter found - Ask for confirmation
                 System.out.println("Are you sure you want to delete this underwriter?");
                 System.out.println("1. Yes (Delete)");
                 System.out.println("2. No (Go Back)");
@@ -157,7 +157,7 @@ public class Admin {
                     System.out.println("❗ Invalid choice. Please enter 1 or 2.");
                 }
             } else {
-                // ❌ Invalid ID - Show options
+                // Invalid ID - Show options
                 System.out.println("❌ Invalid Underwriter ID.");
                 System.out.println("1. Re-Enter Underwriter ID");
                 System.out.println("2. Go Back to Previous Menu");
@@ -172,7 +172,7 @@ public class Admin {
         }
     }
 
-    // 🚗 6. View Vehicles by Underwriter ID
+    // 6. View Vehicles by Underwriter ID
     private static void viewVehiclesByUnderwriterId() {
         while (true) {
             System.out.print("Enter Underwriter ID to view vehicle details: ");
@@ -183,7 +183,7 @@ public class Admin {
             UnderWriter uw = UnderWriter.getUnderwriterById(underwriterId);
 
             if (uw != null) {
-                // ✅ Valid ID - Display vehicle details
+                // Valid ID - Display vehicle details
                 List<Vehicle> vehicles = uw.getVehicles();
                 if (vehicles.isEmpty()) {
                     System.out.println("No vehicles registered under this Underwriter.");
@@ -211,7 +211,7 @@ public class Admin {
     }
 
 
-    // 📚 5. View All Underwriters
+    // 5. View All Underwriters
     private static void viewUnderwriters() {
         System.out.println("List of Underwriters:");
         UnderWriter.displayUnderwriters();
@@ -244,7 +244,7 @@ public class Admin {
             }
         }
     }
-    // 🔄 Update Underwriter Details (Password)
+    // Update Underwriter Details (Password)
     private static void updateUnderwriterDetails() {
         while (true) {
             System.out.print("Enter Underwriter ID: ");
@@ -253,7 +253,7 @@ public class Admin {
 
             UnderWriter uw = UnderWriter.getUnderwriterById(id);
             if (uw != null) {
-                // ✅ Underwriter found - Update password
+                // Underwriter found - Update password
                 System.out.print("Enter New Password: ");
                 String newPassword = scanner.nextLine();
 
